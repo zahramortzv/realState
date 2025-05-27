@@ -1,13 +1,13 @@
 import { FiCircle } from "react-icons/fi";
 import { FaCity } from "react-icons/fa";
-// import CategoryCard from "@/module/CategoryCard";
-// import { categories, cities, services } from "@/constants/strings";
-// import styles from "@/template/HomePage.module.css";
+import CategoryCard from "../modules/CategoryCard";
+import { categories, cities, services } from "../../constants/strings";
+import styles from "@/components/template/HomePage.module.css";
 
 function HomePage() {
   return (
     <div>
-      {/* <div className={styles.banner}>
+      <div className={styles.banner}>
         <div className={styles.desc}>
           <h1>سامانه خرید و اجاره ملک</h1>
           <ul>
@@ -35,7 +35,7 @@ function HomePage() {
             </li>
           ))}
         </ul>
-      </div> */}
+      </div>
     </div>
   );
 }

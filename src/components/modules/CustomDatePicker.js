@@ -7,7 +7,7 @@ function CustomDatePicker({ profileData, setProfileData }) {
 
     const changeHandler = (e) => {
         const date = new Date(e);
-        setProfileData({ ...profileData, constructionData: date })
+        setProfileData({ ...profileData, constructionDate: date })
     }
     return (
         <div className={styles.container}>
@@ -15,7 +15,7 @@ function CustomDatePicker({ profileData, setProfileData }) {
             <DatePicker
                 calendar={persian}
                 locale={persian_fa}
-                value={profileData.constructionData}
+                value={profileData.constructionDate}
                 calendarPosition="bottom-right"
                 onChange={changeHandler}
             />

@@ -5,6 +5,21 @@ import { NextResponse } from "next/server"
 import connectDB from "@/utils/connectDB";
 import { getServerSession } from "next-auth";
 
+export async function GET(req) {
+    try {
+        await connectDB();
+        const profiles = await Profile.find({ published: true }).select("-userId");
+        return NextResponse.json(
+            { data: profiles },
+            { status: 200 });
+
+    } catch (error) {
+        return NextResponse.json(
+            { error: "مشکلی در سرور رخ داده است" },
+            { status: 500 });
+    }
+}
+
 export async function POST(req) {
     try {
         await connectDB();
@@ -16,7 +31,7 @@ export async function POST(req) {
             phone,
             realState,
             price,
-            constructionData,
+            constructionDate,
             amenities, rules,
             category
         } = body;
@@ -44,7 +59,7 @@ export async function POST(req) {
             !phone ||
             !realState ||
             !price ||
-            !constructionData ||
+            !constructionDate ||
             !amenities ||
             !rules ||
             !category
@@ -61,7 +76,7 @@ export async function POST(req) {
             phone,
             realState,
             price: +price,
-            constructionData,
+            constructionDate,
             amenities,
             rules,
             category,
@@ -90,7 +105,7 @@ export async function PATCH(req) {
             phone,
             realState,
             price,
-            constructionData,
+            constructionDate,
             amenities,
             rules,
             category
@@ -118,7 +133,7 @@ export async function PATCH(req) {
             !phone ||
             !realState ||
             !price ||
-            !constructionData ||
+            !constructionDate ||
             !category
         ) {
             return NextResponse.json(
@@ -138,7 +153,7 @@ export async function PATCH(req) {
         profile.location = location;
         profile.realState = realState;
         profile.price = price;
-        profile.constructionData = constructionData;
+        profile.constructionDate = constructionDate;
         profile.category = category;
         profile.amenities = amenities;
         profile.rules = rules;

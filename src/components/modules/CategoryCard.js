@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "@/module/CategoryCard.module.css";
+import styles from "@/components/modules/categoryCard.module.css";
 
 function CategoryCard({ name, title }) {
   return (

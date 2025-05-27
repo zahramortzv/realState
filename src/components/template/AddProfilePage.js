@@ -19,7 +19,7 @@ function AddProfilePage({ data }) {
         phone: "",
         price: "",
         realState: "",
-        constructionData: new Date(),
+        constructionDate: new Date(),
         category: "",
         rules: [],
         amenities: [],
@@ -45,7 +45,19 @@ function AddProfilePage({ data }) {
             toast.error(data.error);
         } else {
             toast.success(data.message);
-            router.refresh()
+            router.refresh();
+            setProfileData({
+                title: "",
+                description: "",
+                location: "",
+                phone: "",
+                price: "",
+                realState: "",
+                constructionDate: new Date(),
+                category: "",
+                rules: [],
+                amenities: [],
+            })
         }
     }
 

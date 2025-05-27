@@ -25,7 +25,7 @@ const profileSchema = new Schema({
         type: Number,
         required: true,
     },
-    constructionData: {
+    constructionDate: {
         type: Date,
         required: true,
     },
@@ -44,7 +44,11 @@ const profileSchema = new Schema({
     },
     userId: {
         type: Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User",
+    },
+    published: {
+        type: Boolean,
+        default: false,
     },
 }, { timestamps: true });
 
