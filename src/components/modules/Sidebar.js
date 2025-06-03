@@ -15,8 +15,8 @@ function Sidebar() {
             <p><HiFilter />دسته بندی</p>
             <Link href="/buy-residential">همه</Link>
             {
-                queries.map((query) => (
-                    <Link href={{ pathname: "/buy-residential", query: { category: Object.keys(query) } }}>{Object.values(query)}</Link>
+                queries.map((query, index) => (
+                    <Link key={index} href={{ pathname: "/buy-residential", query: { category: Object.keys(query) } }}>{Object.values(query)}</Link>
                 ))
             }
         </div>
